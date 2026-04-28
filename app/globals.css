@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --page-black: #050505;
+  --page-white: #f3f1eb;
+  --page-red: #b70f0a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--page-black);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-black);
+  color: var(--page-white);
+  font-family: "Helvetica Neue", "Arial Narrow", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body[data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(255, 59, 48, 0.92);
+  color: var(--page-white);
+}
+
+.mask-video {
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.section-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: clip;
+}
+
+.section-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 14%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.04), transparent 18%);
+  opacity: 0.4;
+}
+
+.section-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 5.5vw 5.5vw;
+  opacity: 0.18;
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+
+.section-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 36%, rgba(0, 0, 0, 0.42) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.55), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+}
+
+.section-noise {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 28%),
+    radial-gradient(circle at 82% 28%, rgba(255, 59, 48, 0.12), transparent 24%),
+    radial-gradient(circle at 50% 84%, rgba(255, 255, 255, 0.06), transparent 35%);
+  opacity: 0.8;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.section-rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  pointer-events: none;
+}
+
+.section-rail-top {
+  top: 4.5rem;
+}
+
+.section-rail-bottom {
+  bottom: 4.5rem;
+}
+
+.copy-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  backdrop-filter: blur(10px);
+}
+
+.copy-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: rgba(255, 59, 48, 0.85);
+}
+
+.copy-panel-light {
+  border-color: rgba(5, 5, 5, 0.1);
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0.06), rgba(5, 5, 5, 0.02));
+}
+
+.copy-panel-light::before {
+  background: rgba(183, 15, 10, 0.9);
+}
+
+.copy-panel-red {
+  border-color: rgba(243, 241, 235, 0.16);
+  background: linear-gradient(180deg, rgba(243, 241, 235, 0.08), rgba(243, 241, 235, 0.03));
+}
+
+.cta-outline {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-outline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-130%);
+  transition: transform 0.8s ease;
+}
+
+.cta-outline:hover::before,
+.cta-outline:focus-visible::before {
+  transform: translateX(130%);
+}
+
+@media (max-width: 768px) {
+  .section-grid {
+    background-size: 12vw 12vw;
+  }
+
+  .section-rail-top {
+    top: 2.25rem;
+  }
+
+  .section-rail-bottom {
+    bottom: 2.25rem;
+  }
+}
