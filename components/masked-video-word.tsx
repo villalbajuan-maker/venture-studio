@@ -5,6 +5,7 @@ type MaskedVideoWordProps = {
   videoSrc: string;
   tone: "dark" | "light" | "red";
   variant?: "hero" | "statement" | "ceremonial";
+  fullBleed?: boolean;
   priority?: boolean;
   className?: string;
 };
@@ -101,6 +102,7 @@ export function MaskedVideoWord({
   videoSrc,
   tone,
   variant = "statement",
+  fullBleed = false,
   priority = false,
   className,
 }: MaskedVideoWordProps) {
@@ -124,7 +126,10 @@ export function MaskedVideoWord({
   return (
     <div
       className={clsx(
-        "relative mx-auto flex h-[40vh] min-h-[240px] w-full max-w-[min(96vw,1600px)] items-center justify-center md:h-[60vh] xl:h-[72vh]",
+        "relative flex items-center justify-center",
+        fullBleed
+          ? "h-[40vh] min-h-[240px] w-full md:h-[60vh] xl:h-[72vh]"
+          : "mx-auto h-[40vh] min-h-[240px] w-full max-w-[min(96vw,1600px)] md:h-[60vh] xl:h-[72vh]",
         className,
       )}
       aria-label={lines.join(" ")}

@@ -17,6 +17,7 @@ type NarrativeSectionProps = {
   tone: SectionTone;
   artifactClassName?: string;
   chapter: string;
+  fullBleed?: boolean;
   gridClassName?: string;
   headlineClassName?: string;
   headlineLines: string[];
@@ -54,6 +55,7 @@ export function NarrativeSection({
   tone,
   artifactClassName,
   chapter,
+  fullBleed = false,
   gridClassName,
   headlineClassName,
   headlineLines,
@@ -121,7 +123,10 @@ export function NarrativeSection({
 
       <div
         className={clsx(
-          "relative z-10 mx-auto flex w-full max-w-[1800px] flex-col justify-between gap-10 px-5 py-8 md:px-10 md:py-10",
+          "relative z-10 flex w-full flex-col justify-between gap-10",
+          fullBleed
+            ? "py-8 md:py-10"
+            : "mx-auto max-w-[1800px] px-5 py-8 md:px-10 md:py-10",
           mode === "editorial" && "gap-7 md:gap-8",
         )}
       >
@@ -129,6 +134,7 @@ export function NarrativeSection({
           data-reveal
           className={clsx(
             "font-body text-[10px] font-medium uppercase tracking-[0.5em] md:text-xs",
+            fullBleed && "px-5 md:px-10",
             accentClasses[tone],
           )}
         >
@@ -143,6 +149,7 @@ export function NarrativeSection({
               tone={maskTone}
               variant={maskVariant}
               priority={priority}
+              fullBleed={fullBleed}
             />
           ) : (
             <div data-reveal className="mx-auto w-full max-w-[1520px]">
@@ -167,6 +174,7 @@ export function NarrativeSection({
           className={clsx(
             "grid gap-6 pb-4 md:grid-cols-[minmax(0,1fr)_minmax(320px,620px)] md:items-end md:gap-10",
             mode === "editorial" && "md:-mt-12",
+            fullBleed && "mx-auto w-full max-w-[1800px] px-5 md:px-10",
             gridClassName,
           )}
         >

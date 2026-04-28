@@ -6,7 +6,7 @@ const sections = [
   {
     sectionIndex: "01",
     tone: "black" as const,
-    chapter: "Doctrine",
+    chapter: "Disbelief",
     mode: "mask" as const,
     headlineLines: ["WE DON'T BELIEVE", "IN IDEAS."],
     videoSrc: "/videos/loop-grid.mp4",
@@ -18,7 +18,7 @@ const sections = [
   {
     sectionIndex: "02",
     tone: "white" as const,
-    chapter: "The True Failure",
+    chapter: "Failure Model",
     mode: "editorial" as const,
     headlineLines: [
       "MOST VENTURES FAIL IN THE SPACE",
@@ -36,7 +36,7 @@ const sections = [
   {
     sectionIndex: "03",
     tone: "black" as const,
-    chapter: "The Gap",
+    chapter: "System Drift",
     mode: "mask" as const,
     headlineLines: ["DECISIONS ACCUMULATE.", "DISCIPLINE DOESN'T."],
     videoSrc: "/videos/loop-grid.mp4",
@@ -69,12 +69,13 @@ const sections = [
     headlineLines: ["VENTURES ARE NOT LAUNCHED.", "THEY ARE CONSTRUCTED."],
     videoSrc: "/videos/loop-lines.mp4",
     maskVariant: "statement" as const,
+    fullBleed: true,
     supportingLines: ["Deliberately.", "Systemically.", "Under constraint."],
   },
   {
     sectionIndex: "06",
     tone: "white" as const,
-    chapter: "Core Thesis",
+    chapter: "Execution Model",
     mode: "editorial" as const,
     headlineLines: ["EXECUTION IS NOT MOVEMENT."],
     headlineClassName:
@@ -88,11 +89,12 @@ const sections = [
   {
     sectionIndex: "07",
     tone: "red" as const,
-    chapter: "Consequences",
+    chapter: "Breakdown",
     mode: "mask" as const,
     headlineLines: ["WITHOUT STRUCTURE,", "EVERYTHING FRAGMENTS."],
     videoSrc: "/videos/loop-pulse.mp4",
     maskVariant: "statement" as const,
+    fullBleed: true,
     supportingLines: [
       "Strategy fragments.",
       "Product drifts.",
@@ -103,7 +105,7 @@ const sections = [
   {
     sectionIndex: "08",
     tone: "black" as const,
-    chapter: "Quiet Collapse",
+    chapter: "Collapse",
     mode: "editorial" as const,
     headlineLines: ["FAILURE DOESN'T", "ARRIVE LOUDLY."],
     headlineClassName:
@@ -118,7 +120,7 @@ const sections = [
   {
     sectionIndex: "09",
     tone: "white" as const,
-    chapter: "Operating Zone",
+    chapter: "Clarity Domain",
     mode: "editorial" as const,
     headlineLines: ["WE OPERATE WHERE", "AMBIGUITY ENDS."],
     headlineClassName:
@@ -134,7 +136,7 @@ const sections = [
   {
     sectionIndex: "10",
     tone: "black" as const,
-    chapter: "Method",
+    chapter: "Operating Method",
     mode: "mask" as const,
     headlineLines: ["WE DON'T ADVISE.", "WE DON'T DECORATE.", "WE CONSTRUCT."],
     videoSrc: "/videos/loop-collapse.mp4",
@@ -184,7 +186,7 @@ export default function HomePage() {
             <div className="grid gap-6 pb-4 md:-mt-24 md:grid-cols-[minmax(280px,420px)_minmax(320px,620px)] md:items-end md:gap-12">
               <div className="max-w-[22rem]">
                 <p className="text-[11px] uppercase tracking-[0.35em] text-carbon/50 md:text-xs">
-                  Final Gate
+                  Admission
                 </p>
                 <BrandTicketArtifact
                   artifactClassName="md:translate-y-2 md:rotate-[2deg]"
@@ -230,6 +232,25 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+
+      <footer className="w-full bg-black border-t border-white/10">
+        <div className="mx-auto max-w-[1800px] px-6 py-16 md:px-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left">
+            <div className="text-white/70 uppercase tracking-[0.3em] text-xs">
+              <div>RED RIDE TICKET</div>
+              <div className="mt-2 normal-case tracking-normal text-[11px]">
+                Venture Execution Studio
+              </div>
+            </div>
+            <div className="text-white/90 text-sm md:text-base tracking-tight">
+              What is not structured, does not hold.
+            </div>
+            <div className="text-white/70 text-sm">
+              apply@redrideticket.studio
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
