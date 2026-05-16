@@ -113,6 +113,7 @@ export function NarrativeSection({
   return (
     <section
       ref={rootRef}
+      data-tone={tone}
       className={clsx("section-shell flex items-center", toneClasses[tone])}
     >
       <div className="section-grid" />
